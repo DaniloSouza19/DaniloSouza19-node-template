@@ -10,20 +10,20 @@ import {
 @Entity('user_tokens')
 class UserToken {
   @PrimaryGeneratedColumn('uuid')
-  private id: string;
+  id: string;
 
   @Column()
   @Generated('uuid')
-  private token: string;
+  token: string;
 
   @Column()
-  private user_id: string;
+  user_id: string;
 
   @CreateDateColumn()
-  private created_at: Date;
+  created_at: Date;
 
   @UpdateDateColumn()
-  private updated_at: Date;
+  updated_at: Date;
 }
 
 export default UserToken;
