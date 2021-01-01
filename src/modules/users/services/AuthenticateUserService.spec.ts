@@ -2,7 +2,7 @@ import AppError from '@shared/errors/AppError';
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import AuthenticateUserService from './AuthenticateUserService';
 import CreateUserService from './CreateUserService';
-import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProviders';
+import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 
 describe('CreateUser', () => {
   it('should be able to authenticate', async () => {
