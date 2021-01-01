@@ -64,4 +64,27 @@ describe('ResetPassword', () => {
       })
     ).rejects.toBeInstanceOf(AppError);
   });
+
+  it('Should not be able to reset the password after 2 hours of token generation', async () => {
+    const user = await fakeUsersRepository.create({
+      name: 'John Due',
+      email: 'johndue@example.com',
+      password: '123',
+    });
+
+    const { token } = await fakeUserTokensRepository.generate(user.id);
+
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      const customDate = new Date();
+
+      return customDate.setHours(customDate.getHours() + 3);
+    });
+
+    await expect(
+      resetPasswordService.execute({
+        token,
+        password: '123456',
+      })
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });
