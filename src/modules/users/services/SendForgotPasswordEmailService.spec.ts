@@ -5,12 +5,12 @@ import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import FakeUserTokensRepository from '../repositories/fakes/FakeUserTokensRepository';
 import SendForgotPasswordEmailService from './SendForgotPasswordEmailService';
 
-describe('SendForgotPasswordEmail', () => {
-  let fakeUsersRepository: FakeUsersRepository;
-  let fakeMailProvider: FakeMailProvider;
-  let sendForgotPasswordEmail: SendForgotPasswordEmailService;
-  let fakeUserTokensRepository: FakeUserTokensRepository;
+let fakeUsersRepository: FakeUsersRepository;
+let fakeMailProvider: FakeMailProvider;
+let sendForgotPasswordEmail: SendForgotPasswordEmailService;
+let fakeUserTokensRepository: FakeUserTokensRepository;
 
+describe('SendForgotPasswordEmail', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeMailProvider = new FakeMailProvider();
