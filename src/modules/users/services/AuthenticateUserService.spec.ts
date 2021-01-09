@@ -26,13 +26,13 @@ describe('CreateUser', () => {
 
   it('should be able to authenticate', async () => {
     const user = await createUserService.execute({
-      name: 'John Due',
+      name: 'John Doe',
       password: '123',
-      email: 'johndue@example.com',
+      email: 'johndoe@example.com',
     });
 
     const response = await authenticateUserService.execute({
-      email: 'johndue@example.com',
+      email: 'johndoe@example.com',
       password: '123',
     });
 
@@ -43,7 +43,7 @@ describe('CreateUser', () => {
   it('should not be able to authenticate with non existing user', async () => {
     await expect(
       authenticateUserService.execute({
-        email: 'johndue@example.com',
+        email: 'johndoe@example.com',
         password: '123',
       })
     ).rejects.toBeInstanceOf(AppError);
@@ -51,14 +51,14 @@ describe('CreateUser', () => {
 
   it('should not be able to authenticate with wrong password', async () => {
     await createUserService.execute({
-      name: 'John Due',
+      name: 'John Doe',
       password: '123',
-      email: 'johndue@example.com',
+      email: 'johndoe@example.com',
     });
 
     await expect(
       authenticateUserService.execute({
-        email: 'johndue@example.com',
+        email: 'johndoe@example.com',
         password: 'wrong-password',
       })
     ).rejects.toBeInstanceOf(AppError);
