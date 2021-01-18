@@ -1,9 +1,13 @@
 import Appointment from '../infra/typeorm/entities/Appointment';
-import IcreateAppointmentDTO from '../dtos/ICreateAppointmentDTO';
+import ICreateAppointmentDTO from '../dtos/ICreateAppointmentDTO';
+import IFindAllInMonthFromProviderDTO from '../dtos/IFindAllInMonthFromProviderDTO';
 
 interface IAppointmentsRepository {
-  create(data: IcreateAppointmentDTO): Promise<Appointment>;
+  create(data: ICreateAppointmentDTO): Promise<Appointment>;
   findByDate(date: Date): Promise<Appointment | undefined>;
+  findAllInMonthFromProvider(
+    data: IFindAllInMonthFromProviderDTO
+  ): Promise<Appointment[]>;
 }
 
 export default IAppointmentsRepository;
