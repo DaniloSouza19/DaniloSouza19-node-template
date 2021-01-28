@@ -4,7 +4,7 @@ import Notification from '@modules/notifications/infra/typeorm/schemas/Notificat
 import INotificationsRepository from '../INotificationsRepository';
 
 class FakeNotificationsRepository implements INotificationsRepository {
-  private notifications: Notification[];
+  private notifications: Notification[] = [];
 
   public async create({
     content,
@@ -13,8 +13,6 @@ class FakeNotificationsRepository implements INotificationsRepository {
     const notification = new Notification();
 
     Object.assign(notification, { id: new ObjectID(), content, recipient_id });
-
-    console.log(notification);
 
     this.notifications.push(notification);
 
