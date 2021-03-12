@@ -4,10 +4,10 @@ import IStorageProvider from './models/IStorageProvider';
 import DiskStorageProvider from './implementations/DiskStorageProvider';
 
 const providers = {
-  diskStorage: DiskStorageProvider,
+  disk: DiskStorageProvider,
 };
 
 container.registerSingleton<IStorageProvider>(
   'StorageProvider',
-  providers.diskStorage
+  providers.disk
 );
